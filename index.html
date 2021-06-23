@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="contenedor-mapa modal-active">
+    <div class="modal-hoteles">
+      <div class="cuerpo">
+        <span class="close">x</span>
+        <img src="" alt="hotel" class="imagen">
+        <div class="direccion"></div>
+        <div class="nombre">Hotel Bla Bla</div>
+        <div class="text"></div>
+        <div class="tel"></div>
+        <a href="" class="link"><img src="./right-arrow.png" alt="link"></a>
+      </div>
+      <div class="errores">
+        <span class="close">x</span>
+        <span class="title">Error!</span>
+        <span class="texto">No hay información sobre este hotel</span>
+      </div>
+    </div>
+    <div class="markers">
+      <img class="mapa" src="./map-sma.png" alt="mapa">
+      <div class="mark-container mark-1" data-nombre="hotel1">
+        <img class="mark " src="./placeholder.png" alt="mark">
+        <span>Hotel Maria Bonita</span>
+      </div>
+      <div class="mark-container mark-2" data-nombre="hotel2">
+        <img class="mark " src="./placeholder.png" alt="mark">
+        <span>Hotel Cazaluna</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    const hoteles = {
+      hotel1: {
+        nombre: 'Maria Bonita Hotel',
+        direccion: 'Zacateros 12, Centro San Miguel de Allende',
+        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        tel: '+52 (415) 688 3710',
+        url: 'https://sanmigueldeallendehotel.com/?page_id=1341',
+        text: 'María Bonita es un hotel urbano inspirado en la belleza de México. Un encantador lugar para escapar de la rutina y disfrutar la cultura y las tradiciones del país con la calidez que caracteriza a San Miguel de Allende.'
+      }
+    }
+    const markers = document.querySelectorAll('.contenedor-mapa .markers .mark-container');
+    document.querySelectorAll('.modal-hoteles .close').forEach(el => {
+      el.addEventListener('click', cerrarModal);
+    });
+
+    markers.forEach(function(el){
+      el.addEventListener('click', abrirModal);
+    })
+
+    function abrirModal(el){
+      let marker = el.target;
+
+      if(!marker.classList.contains('mark-container')){
+        marker = marker.parentNode;
+      }
+
+      let nombreHotel = marker.getAttribute('data-nombre');
+      let hotel = hoteles[nombreHotel];
+      if(!hotel){
+        console.log('Nop hay Hotel');
+        document.querySelector('.modal-hoteles').classList.add('open', 'error');
+        return false;
+      }
+
+      document.querySelector('.modal-hoteles .nombre').innerHTML = hotel.nombre;
+      document.querySelector('.modal-hoteles .imagen').src = hotel.imagen;
+      document.querySelector('.modal-hoteles .direccion').innerHTML = hotel.direccion;
+      document.querySelector('.modal-hoteles .tel').innerHTML = hotel.tel;
+      document.querySelector('.modal-hoteles .text').innerHTML = hotel.text.slice(0, 230) + '...';
+      document.querySelector('.modal-hoteles .link').href = hotel.url;
+
+      document.querySelector('.modal-hoteles').classList.add('open');
+      console.log(hoteles[nombreHotel]);
+    }
+
+    function cerrarModal(){
+      document.querySelector('.modal-hoteles').classList.remove('open', 'error');
+    }
+
+    
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.contenedor-mapa{
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  max-width: 1300px;
+  margin: auto;
+}
+.contenedor-mapa img.mapa{
+  object-fit: cover;
+  height: inherit;
+  width: inherit;
+  position:absolute;
+}
+
+.markers{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, 0.5);
+  position: relative;
+}
+
+.markers .mark-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  cursor: pointer;
+}
+.mark-container .mark{
+  width: 70px;
+}
+.mark-container span{
+  position:absolute;
+  left: auto;
+  bottom: 15px;
+  background-color: #fff;
+  padding: 2px 8px;
+}
+
+/* controlando la posición de los markers */
+.mark-container.mark-1{
+  top: 13%;
+  left: 55%;
+}
+
+/* modal */
+.modal-hoteles{
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal-hoteles.open{
+  display: flex;
+}
+.modal-hoteles.open ~ .markers{
+  filter: blur(2px);
+}
+.modal-hoteles .cuerpo{
+  background-color: #fff;
+  /* padding: 10px 25px; */
+  border-radius: 5px;
+  position: relative;
+  width: 350px;
+  height: 85%;
+  box-shadow: 0 0 35px 5px rgba(0,0,0, 0.5);
+}
+.modal-hoteles .cuerpo .imagen{
+  width: 100%;
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.modal-hoteles .cuerpo .nombre, .modal-hoteles .cuerpo .direccion, .modal-hoteles .cuerpo .tel, .modal-hoteles .cuerpo .text{
+  padding: 0 15px;
+}
+.modal-hoteles .cuerpo .nombre{
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+.modal-hoteles .cuerpo .direccion{
+  color: #adb5bd;
+  margin: 15px 0;
+}
+.modal-hoteles .cuerpo .text{
+  margin-bottom: 30px;
+}
+.modal-hoteles .cuerpo .tel{
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+}
+.modal-hoteles .close{
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1.5rem;
+  z-index: 15;
+  font-weight: bold;
+  font-family: cursive;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease;
+}
+.modal-hoteles .close:hover{
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  transform: rotate(360deg);
+}
+.modal-hoteles .cuerpo .link{
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  color: #666666;
+  font-size: 2rem;
+  animation: blip 1s infinite alternate;
+}
+@keyframes blip {
+  100%{
+    transform: translateX(.5rem);
+  }
+}
+
+/* error */
+.modal-hoteles .errores, .modal-hoteles.open.error .cuerpo{
+  display: none;
+}
+.modal-hoteles.error .errores{
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 35px 5px rgba(0,0,0, 0.5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-hoteles .errores .title{
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.modal-hoteles.error .close{
+  background-color: #fff;
+  color: #000;
+}
+.modal-hoteles.error .close:hover{
+  background-color: #000;
+  color: #fff;
+}
