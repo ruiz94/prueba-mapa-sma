@@ -9,12 +9,18 @@
 </head>
 <body>
   <div class="contenedor-mapa modal-active">
-    <div class="modal-hoteles">
+    <div class="modal-hoteles" id="modal-hoteles">
       <div class="cuerpo">
         <span class="close">x</span>
         <img src="" alt="hotel" class="imagen">
         <div class="direccion"></div>
-        <div class="nombre">Hotel Bla Bla</div>
+        <div class="contenedor-titulo">
+          <img class="icon_hotel" src="" alt="">
+          <div class="contenedor-nombre">
+            <div class="text-hotel">Hotel</div>
+            <div class="nombre">Hotel Bla Bla</div>
+          </div>
+        </div>
         <div class="text"></div>
         <div class="tel"></div>
         <a href="" class="link"><img src="./right-arrow.png" alt="link"></a>
@@ -28,39 +34,39 @@
     <div class="markers">
       <img class="mapa" src="./map-sma.png" alt="mapa">
       <div class="mark-container mark-1" data-nombre="hotel1">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Hotel Maria Bonita</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel María Bonita</span>
       </div>
       <div class="mark-container mark-2" data-nombre="hotel2">
-        <img class="mark " src="./placeholder.svg" alt="mark">
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
         <span>Hotel CasaQuetzal</span>
       </div>
       <div class="mark-container mark-3" data-nombre="hotel3">
-        <img class="mark " src="./placeholder.svg" alt="mark">
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
         <span>Hotel del Portal</span>
       </div>
       <div class="mark-container mark-4" data-nombre="hotel4">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Maria Isabel</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel María Isabel</span>
       </div>
       <div class="mark-container mark-5" data-nombre="hotel5">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Los Agaves</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel Los Agaves</span>
       </div>
       <div class="mark-container mark-6" data-nombre="hotel6">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Pila Seca 11</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel Pilaseca11</span>
       </div>
       <div class="mark-container mark-7" data-nombre="hotel7">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Hotel Casa Luna</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel Casaluna</span>
       </div>
       <div class="mark-container mark-8" data-nombre="hotel8">
-        <img class="mark " src="./placeholder.svg" alt="mark">
-        <span>Hotel Casa Liza</span>
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
+        <span>Hotel Casaliza</span>
       </div>
       <div class="mark-container mark-9" data-nombre="hotel9">
-        <img class="mark " src="./placeholder.svg" alt="mark">
+        <img class="mark " src="https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-mark.png" alt="mark">
         <span>Hotel Casa 88</span>
       </div>
     </div>
@@ -70,75 +76,84 @@
   <script>
     const hoteles = {
       hotel1: {
-        nombre: 'Hotel María Bonita',
+        nombre: 'María Bonita',
         direccion: 'Zacateros 12, Zona Centro, Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/MariaBonita.png',
         tel: '+52 (415) 688 3710',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1341',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-maria-bonita.png',
         text: 'María Bonita es un hotel urbano inspirado en la belleza de México. Un encantador lugar para escapar de la rutina y disfrutar la cultura y las tradiciones del país con la calidez que caracteriza a San Miguel de Allende.'
       },
       hotel2: {
-        nombre: 'Hotel CasaQuetzal',
+        nombre: 'CasaQuetzal',
         direccion: 'Hospicio 34, Zona Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/Quetzal.png',
         tel: '+52 (415) 688 3710',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1388',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-casa-liza.png',
         text: 'Ubicado en el corazón del centro histórico de San Miguel, Casa Quetzal es un pequeño e íntimo hotel donde el valor y el servicio van de la mano. Cada habitación es única, con hermosos jardines y una terraza para relajarse después de un día ajetreado en San Miguel de Allende. Es un favorito de los viajeros durante más de veinte años.'
       },
       hotel3: {
-        nombre: 'Hotel del Portal',
+        nombre: 'Del Portal',
         direccion: 'Portal Allende 8, Centro',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/DelPortal.png',
         tel: '+52 (415) 152-8889',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1412',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-del-portal.png',
         text: 'El Hotel del Portal es un pequeño hotel clásico ubicado en los históricos Portales de la Plaza Principal – la cuadra principal de San Miguel de Allende, México. La terraza ofrece vistas inigualables de La Parroquia. El hotel está diseñado para el viajero que desea estar cerca de toda la energía y la emoción del centro de la ciudad.'
       },
       hotel4: {
-        nombre: 'Hotel Maria Isabel',
+        nombre: 'María Isabel',
         direccion: 'Cuadrante 32, Zona Centro, Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/mariaisabela.png',
         tel: '+52 (415) 121-8397',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1350',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-maria-isabel.png',
         text: 'Un hotel urbano inspirado en la belleza natural de San Miguel situado en una calle tranquila a dos cuadras del Jardín.Escondido de la escena callejera de San Miguel, el pasillo de entrada del hotel marca la pauta con su colorido mural geométrico. Este hotel urbano cuenta con una acogedora zona de estar al aire libre para los huéspedes y detalles arquitectónicos llamativos combinados con los materiales naturales de construcción de esta ciudad del siglo XVI. Situado a 2 cuadras de la plaza principal, los huéspedes están a pocos pasos de lo mejor que San Miguel ofrece.'
       },
       hotel5: {
-        nombre: 'Hotel Los Agaves',
+        nombre: 'Los Agaves',
         direccion: 'Ancha de San Antonio 13, Zona Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/Losagaves.png',
         tel: '+52 (415) 688-3710',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1406',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-los-agaves.png',
         text: 'Los Agaves es un suites-hotel en San Miguel de Allende, perfecto para viajeros de negocios o con poco presupuesto. Los Agaves ofrece a sus huéspedes cómodas habitaciones en una excelente ubicación, a solo 3 cuadras de la plaza principal y se encuentra frente al Instituto Allende. El Instituto Allende es la casa de una de las escuelas de arte más importantes de México. Perfecto para parejas que buscan una escapada romántica o viajeros que desean caminar fácilmente a lo mejor que San Miguel tiene para ofrecer.'
       },
       hotel6: {
-        nombre: 'Hotel PILASECA11',
+        nombre: 'Pilaseca11',
         direccion: 'Zona Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/PilaSeca.png',
         tel: '+52 (415) 688-3710',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1421',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-pilaseca.png',
         text: 'Ubicado en el centro histórico de la ciudad, en una casa restaurada del siglo XVI, este hotel de San Miguel de Allende es una excelente opción para los viajeros que valoran y respetan el medio ambiente. Desde paneles solares para calentar agua hasta agua reciclada, Pila Seca 11 se enorgullece de hacer nuestra parte como hotel ecológico.'
       },
       hotel7: {
-        nombre: 'Hotel CASALUNA',
+        nombre: 'Casaluna',
         direccion: 'Quebrada 117, Zona Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/CasaLuna.png',
         tel: '+52 (415) 688-3710',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1402',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-casa-liza.png',
         text: 'Disfrute de este refugio y retiro colonial clásico en el corazón del centro histórico de San Miguel de Allende. A dos cuadras de la ciudad, en una calle tranquila, los románticos jardines y las amplias habitaciones hacen de Casaluna el lugar perfecto para parejas que buscan una escapada relajante o viajeros que desean caminar y explorar San Miguel de Allende para luego descansar en los encantadores jardines dentro del hotel.'
       },
       hotel8: {
-        nombre: 'Hotel CASALIZA',
+        nombre: 'Casaliza',
         direccion: 'Bjd. del Chorro 7, Zona Centro, 37700 San Miguel de Allende, Gto.',
-        imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
+        imagen: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/CasaLiza.png',
         tel: '+52 (415) 150 1264',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1432',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-casa-liza.png',
         text: 'Situado en lo alto del Parque Juárez, a tres cuadras del centro de la ciudad, Casa Liza es un hotel de retiro aislado en la ciudad de San Miguel de Allende. Los encantadores jardines y las románticas terrazas ofrecen el escenario perfecto para una escapada relajante en San Miguel.'
       },
       hotel9: {
-        nombre: 'Hotel Casa 88',
+        nombre: 'Casa 88',
         direccion: 'Calle del Dr Ignacio Hernandez Macias 88, Zona Centro, 37700 San Miguel de Allende, Gto.',
         imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/13/1b/9c/c4/hotel-zar-la-paz.jpg',
         tel: '+52 (55) 8533 6695',
         url: 'https://sanmigueldeallendehotel.com/?page_id=1702',
+        icon_url: 'https://sanmigueldeallendehotel.com/wp-content/uploads/2021/07/icono-casa88.png',
         text: 'Hotel Casa 88 está ubicado en una de las mejores zonas en San Miguel de Allende a solo 3 min del corazón de la ciudad. Podrás visitar su colorida Plaza Principal y uno de los iconos más representativos, la Parroquia de San Miguel Arcángel.'
       }
     }
@@ -161,7 +176,6 @@
       let nombreHotel = marker.getAttribute('data-nombre');
       let hotel = hoteles[nombreHotel];
       if(!hotel){
-        console.log('Nop hay Hotel');
         document.querySelector('.modal-hoteles').classList.add('open', 'error');
         return false;
       }
@@ -172,14 +186,21 @@
       document.querySelector('.modal-hoteles .tel').innerHTML = hotel.tel;
       document.querySelector('.modal-hoteles .text').innerHTML = hotel.text.slice(0, 230) + '...';
       document.querySelector('.modal-hoteles .link').href = hotel.url;
+      document.querySelector('.modal-hoteles .icon_hotel').src = hotel.icon_url;
 
       document.querySelector('.modal-hoteles').classList.add('open');
-      console.log(hoteles[nombreHotel]);
     }
 
     function cerrarModal(){
       document.querySelector('.modal-hoteles').classList.remove('open', 'error');
     }
+    document.addEventListener('click', function(e) {
+                    
+      var container = document.getElementById("modal-hoteles");
+      if (container === e.target) { 
+        cerrarModal();               
+      }
+    })
 
     
 

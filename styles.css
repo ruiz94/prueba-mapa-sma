@@ -42,6 +42,7 @@ body{
   bottom: 15px;
   background-color: #fff;
   padding: 2px 8px;
+  border-radius: 5px;
 }
 
 /* controlando la posición de los markers */
@@ -116,12 +117,25 @@ body{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.modal-hoteles .cuerpo .nombre, .modal-hoteles .cuerpo .direccion, .modal-hoteles .cuerpo .tel, .modal-hoteles .cuerpo .text{
+.modal-hoteles .cuerpo .contenedor-nombre,.modal-hoteles .cuerpo .contenedor-titulo, .modal-hoteles .cuerpo .direccion, .modal-hoteles .cuerpo .tel, .modal-hoteles .cuerpo .text{
   padding: 0 15px;
+}
+.modal-hoteles .cuerpo .contenedor-titulo{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 20px;
+}
+.modal-hoteles .cuerpo .contenedor-titulo img{
+  width: 60px;
+}
+.modal-hoteles .cuerpo .contenedor-nombre .text-hotel{
+  color: #666666;
+  margin-bottom: -7px;
 }
 .modal-hoteles .cuerpo .nombre{
   font-size: 2.3rem;
-  margin-bottom: 20px;
+ 
 }
 .modal-hoteles .cuerpo .direccion{
   color: #adb5bd;
