@@ -7,13 +7,13 @@ body{
 }
 .contenedor-mapa{
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   position: relative;
   max-width: 1300px;
   margin: auto;
 }
 .contenedor-mapa img.mapa{
-  object-fit: cover;
+  object-fit: fill;
   height: inherit;
   width: inherit;
   position:absolute;
@@ -34,7 +34,7 @@ body{
   cursor: pointer;
 }
 .mark-container .mark{
-  width: 70px;
+  width: 100px;
 }
 .mark-container span{
   position:absolute;
@@ -46,9 +46,43 @@ body{
 
 /* controlando la posición de los markers */
 .mark-container.mark-1{
-  top: 13%;
-  left: 55%;
+  top: 11%;
+  left: 30%;
 }
+.mark-container.mark-2{
+  top: 23%;
+  left: 75%;
+}
+.mark-container.mark-3{
+  top: 0%;
+  left: 46%;
+}
+.mark-container.mark-4{
+  top: 25%;
+  left: 43%;
+}
+.mark-container.mark-5{
+  top: 60%;
+  left: 22%;
+}
+.mark-container.mark-6{
+  top: 21%;
+  left: 35%;
+}
+.mark-container.mark-7{
+  top: 15%;
+  left: 21%;
+}
+.mark-container.mark-8{
+  top: 70%;
+  left: 78%;
+}
+.mark-container.mark-9{
+  top: 14%;
+  left: 41%;
+}
+
+
 
 /* modal */
 .modal-hoteles{
@@ -73,7 +107,7 @@ body{
   border-radius: 5px;
   position: relative;
   width: 350px;
-  height: 85%;
+  height: auto;
   box-shadow: 0 0 35px 5px rgba(0,0,0, 0.5);
 }
 .modal-hoteles .cuerpo .imagen{
@@ -94,7 +128,7 @@ body{
   margin: 15px 0;
 }
 .modal-hoteles .cuerpo .text{
-  margin-bottom: 30px;
+  margin-bottom: 90px;
 }
 .modal-hoteles .cuerpo .tel{
   font-weight: bold;
@@ -168,4 +202,75 @@ body{
 .modal-hoteles.error .close:hover{
   background-color: #000;
   color: #fff;
+}
+
+@media screen and (max-width: 1030px) {
+  .modal-hoteles .cuerpo{
+    height: 60%;
+  }
+  .contenedor-mapa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .markers{
+    min-width: 800px;
+    height: 567px;
+  }
+  .mark-container .mark{
+    width: 60px;
+  }
+  .mark-container.mark-1{
+    top: 9%;
+    left: 27%;
+  }
+  .mark-container.mark-2{
+    top: 23%;
+    left: 70%;
+  }
+  .mark-container.mark-3{
+    top: 0%;
+    left: 43%;
+  }
+  .mark-container.mark-4{
+    top: 25%;
+    left: 40%;
+  }
+  .mark-container.mark-5{
+    top: 60%;
+    left: 19%;
+  }
+  .mark-container.mark-6{
+    top: 21%;
+    left: 30%;
+  }
+  .mark-container.mark-7{
+    top: 16%;
+    left: 18%;
+  }
+  .mark-container.mark-8{
+    top: 70%;
+    left: 73%;
+  }
+  .mark-container.mark-9{
+    top: 14%;
+    left: 38%;
+  }
+}
+@media screen and (max-width: 500px){
+  .mark-container span{
+    font-size: 11px;
+  }
+  .markers .mark-container{
+    width: 110px;
+  }
+  .markers {
+    min-width: 670px;
+  }
+  .modal-hoteles{
+    left: 2rem;
+  }
+  .modal-hoteles .cuerpo{
+    height: 85%;
+  }
 }
